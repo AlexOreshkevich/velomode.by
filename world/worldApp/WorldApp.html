@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Use correct character set. -->
+    <meta charset="utf-8">
+    <!-- Tell IE to use the latest, best version (or Chrome Frame if pre-IE11). -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>Velmode</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <!--<script src="../Source/Cesium.js"></script>-->
+    <script src="../Build/CesiumUnminified/Cesium.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="../Apps/Sandcastle/Sandcastle-header.js"></script>
+    <script >
+        function closeDescription() {
+            document.getElementById('home-description').style.display = "none";
+        }
+    </script>
+    <style>
+        @import url(../Source/Widgets/widgets.css);
+
+        html, body, #cesiumContainer {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #home-description {
+            position: absolute;
+            left: 0;
+            top: 5%;
+            z-index: 100;
+            width: 15%;
+            min-width: 170px;
+            -webkit-box-shadow: 5px 5px 15px 0px rgba(255, 255, 255, 0.6);
+            -moz-box-shadow: 5px 5px 15px 0px rgba(255, 255, 255, 0.6);
+            box-shadow: 5px 5px 15px 0px rgba(255, 255, 255, 0.6);
+        }
+
+        #home-description {
+            position: absolute;
+            left: 0;
+            top: 5%;
+            z-index: 10000;
+            width: 15%;
+            min-width: 170px;
+            -webkit-box-shadow: 5px 5px 15px 0px rgba(255, 255, 255, 0.6);
+            -moz-box-shadow: 5px 5px 15px 0px rgba(255, 255, 255, 0.6);
+            box-shadow: 5px 5px 15px 0px rgba(255, 255, 255, 0.6);
+        }
+
+        #home-description h1,
+        #home-description p {
+            padding: 20px;
+            margin: 0;
+        }
+
+        #home-description :first-child {
+            -webkit-border-top-right-radius: 5px;
+            -webkit-border-bottom-right-radius: 0;
+            -webkit-border-bottom-left-radius: 0;
+            -webkit-border-top-left-radius: 0;
+            -moz-border-radius-topright: 5px;
+            -moz-border-radius-bottomright: 0;
+            -moz-border-radius-bottomleft: 0;
+            -moz-border-radius-topleft: 0;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            -moz-background-clip: padding-box;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        #home-description :last-child {
+            -webkit-border-top-right-radius: 0;
+            -webkit-border-bottom-right-radius: 5px;
+            -webkit-border-bottom-left-radius: 0;
+            -webkit-border-top-left-radius: 0;
+            -moz-border-radius-topright: 0;
+            -moz-border-radius-bottomright: 5px;
+            -moz-border-radius-bottomleft: 0;
+            -moz-border-radius-topleft: 0;
+            /* border-top-right-radius: 0; */
+            /* border-bottom-right-radius: 5px; */
+            /* border-bottom-left-radius: 0; */
+            /* border-top-left-radius: 0; */
+            -moz-background-clip: padding-box;
+            /* -webkit-background-clip: padding-box; */
+            /* background-clip: padding-box; */
+        }
+
+        #home-description h1 {
+            font-size: 24px;
+            background: #3c8ed3;
+            background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #49acde), color-stop(1, #2865c3));
+            background: -ms-linear-gradient(bottom, #49acde, #2865c3);
+            background: -moz-linear-gradient(center bottom, #49acde 0%, #2865c3 100%);
+            background: -o-linear-gradient(#2865c3, #49acde);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2865c3', endColorstr='#49acde', GradientType=0);
+            color: #ffffff;
+        }
+
+        #home-description p {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #7A7A7A;
+        }
+
+        #home-description button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding: 0px;
+            border-width: 0px;
+            background: none;
+        }
+    </style>
+    <style>
+        @import url(../Apps/Sandcastle/templates/bucket.css);
+    </style>
+</head>
+<body>
+<div id="home-description">
+    <div class="custom">
+        <button onclick="closeDescription()">
+            <img src="Close-icon24x24.png" >
+        </button>
+
+        <h1>Каталог швейной фурнитуры</h1>
+
+        <p>Приветствуем Вас!<br>На Земном шаре выберите, пожалуйста, какой регион Вам будет интересен. После этого
+            произойдёт переход в каталог данного региона.</p></div>
+</div>
+<div id="cesiumContainer" class="fullSize"></div>
+<div id="loadingOverlay"><h1>Loading...</h1></div>
+<div id="toolbar"></div>
+
+<script src="js/init.js"></script>
+</body>
+</html>
