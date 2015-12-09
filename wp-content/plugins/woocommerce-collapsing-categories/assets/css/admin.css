@@ -1,0 +1,16 @@
+/* WooCommerce colllapsing categories admin styles */
+.wa-wcc-credits { float: right; width: 280px; background: #fff; margin: 20px -300px 20px 20px; position: relative; }
+.wa-wcc-credits  .inner { padding-left: 10px; padding-right: 10px; }
+.wa-wcc-credits  h3 { font-size: 14px; line-height: 1.4; margin: 0;  padding: 8px 12px; border-bottom: 1px solid #eee; }
+.wa-wcc-credits  .wa-link { font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif; font-style:italic; padding-bottom: 10px; margin: 0; }
+.wa-wcc-credits  .wa-link a { vertical-align: middle; padding: 5px 0 0 4px; }
+
+.wa-wcc-settings { margin-right: 300px; }
+.wa-wcc-settings hr { border: solid #eee; border-width: 1px 0 0; clear: both; height: 0; }
+.wa-wcc-settings form { float: left; min-width: 463px; width: auto; }
+.wa-wcc-settings fieldset span.description { margin-bottom: 8px; margin-top: 4px; display: block; }
+
+@media only screen and (max-width: 959px) {
+	.wa-wcc-settings { width: 100%; float: none; margin: 20px 0; }
+	.wa-wcc-settings { margin-right: 0; }
+}
