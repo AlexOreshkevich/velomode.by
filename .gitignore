@@ -1,0 +1,5 @@
+# idea specific
+.idea/
+*.iml
+*.ipr
+*.iws
