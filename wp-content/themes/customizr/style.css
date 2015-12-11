@@ -902,7 +902,7 @@ ul.dropdown-menu {
 }
 
 li.product {
-  height: 230px;
+  height: 15em;
 }
 
 .woocommerce-ordering option[value="price"], option[value="price-desc"]{
@@ -923,4 +923,28 @@ display:none;
 .shop_attributes p {
   color: #2d9ecf;
   font-weight: 700;
+}
+
+/* Корректировка hover на картинках */
+.round-div {
+  top: 10px;
+  left: 0px;
+  width: 250px;
+  height: 250px;
+}
+
+.widget-front .round-div {
+  border-color: rgb(219, 219, 219);
+}
+
+/* Корректировка отображения товаров в списке подкатегорий*/
+#products > ul > li h3 {
+  margin-top: -11px;
+  position: relative;
+  min-height: 40px;
+  padding-bottom: 5px !important;
+}
+
+li.product {
+  height: auto;
 }
