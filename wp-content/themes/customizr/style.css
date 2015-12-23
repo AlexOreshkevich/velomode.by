@@ -948,3 +948,22 @@ display:none;
 li.product {
   height: auto;
 }
+
+span.attribute-value{
+    font-weight: bold;
+    color: #3E94D1;
+}
+
+ul > li > a {
+    font-size: 12px;
+    list-style: inherit;
+    mar
+}
+
+.widget li {
+    list-style: inherit;
+}
+
+ul.children {
+    margin: 0px 0 -3px 10px;
+}

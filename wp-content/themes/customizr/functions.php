@@ -92,3 +92,78 @@ require_once( get_template_directory() . '/inc/init.php' );
 * More informations on how to create a child theme with Customizr here : http://presscustomizr.com/customizr/#child-theme
 
 */
+
+add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 20;' ), 20 );
+/**
+ * Заменяем стандартную пагинацию WooCommerce на постраничную  навигацию WP-PageNavi
+ *
+ */
+
+remove_action('woocommerce_pagination', 'woocommerce_pagination', 10);
+
+function woocommerce_pagination() {
+
+        wp_pagenavi();     
+    }
+add_action( 'woocommerce_pagination', 'woocommerce_pagination', 10);
+
+
+
+function isa_woocommerce_all_pa(){
+ 
+    global $product;
+    $attributes = $product->get_attributes();
+ 
+    if ( ! $attributes ) {
+        return;
+    }
+ 
+    $out = '<ul class="custom-attributes">';
+ 
+    foreach ( $attributes as $attribute ) {
+ 
+ 
+        // skip variations
+        if ( $attribute['is_variation'] ) {
+        continue;
+        }
+ 
+ 
+        if ( $attribute['is_taxonomy'] ) {
+ 
+            $terms = wp_get_post_terms( $product->id, $attribute['name'], 'all' );
+ 
+            // get the taxonomy
+            $tax = $terms[0]->taxonomy;
+ 
+            // get the tax object
+            $tax_object = get_taxonomy($tax);
+ 
+            // get tax label
+            if ( isset ($tax_object->labels->name) ) {
+                $tax_label = $tax_object->labels->name;
+            } elseif ( isset( $tax_object->label ) ) {
+                $tax_label = $tax_object->label;
+            }
+ 
+            foreach ( $terms as $term ) {
+ 
+                $out .= '<li class="' . esc_attr( $attribute['name'] ) . ' ' . esc_attr( $term->slug ) . '">';
+                $out .= '<span class="attribute-label">' . $tax_label . ': </span> ';
+                $out .= '<span class="attribute-value">' . $term->name . '</span></li></br>';
+ 
+            }
+ 
+        } else {
+ 
+            $out .= '<li class="' . sanitize_title($attribute['name']) . ' ' . sanitize_title($attribute['value']) . '">';
+            $out .= '<span class="attribute-label">' . $attribute['name'] . ': </span> ';
+            $out .= '<span class="attribute-value">' . $attribute['value'] . '</span></li></br>';
+        }
+    }
+ 
+    $out .= '</ul>';
+ 
+    echo $out;
+}
+add_action('woocommerce_single_product_summary', 'isa_woocommerce_all_pa', 25);
